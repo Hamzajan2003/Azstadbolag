@@ -200,11 +200,14 @@ section p {
 }
 
 .service-card .card-img {
-  width: 100%;
+  width: calc(100% + 4rem);
+  max-width: none;
   height: 160px;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius) var(--radius) 0 0;
-  margin: -2rem -2rem 1.25rem -2rem;
+  margin: -2rem 0 1.25rem -2rem;
+  display: block;
 }
 
 /* Booking section */
