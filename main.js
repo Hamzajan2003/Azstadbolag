@@ -33,4 +33,30 @@
       }
     });
   });
+
+  // Booking form – opens mailto with pre-filled data
+  var form = document.getElementById('booking-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var isOffer = e.submitter && e.submitter.getAttribute('name') === 'offer';
+      var subject = isOffer ? 'Begär offert – A-Z Städbolaget' : 'Bokningsförfrågan – A-Z Städbolaget';
+      var body = [
+        'Namn: ' + (form.name.value || ''),
+        'Telefon: ' + (form.phone.value || ''),
+        'E-post: ' + (form.email.value || ''),
+        'Adress: ' + (form.address.value || ''),
+        'Tjänst: ' + (form.service.value || ''),
+        'Storlek (kvm): ' + (form.size.value || ''),
+        'Antal rum: ' + (form.rooms.value || ''),
+        'Datum & tid: ' + (form.datetime.value || ''),
+        'RUT-avdrag: ' + (form.rut.checked ? 'Ja' : 'Nej'),
+        '',
+        'Meddelande:',
+        form.message.value || ''
+      ].join('\n');
+      var mailto = 'mailto:info@azstadbolag.se?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+    });
+  }
 })();

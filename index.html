@@ -12,7 +12,9 @@
 <body>
   <header>
     <div class="header-inner">
-      <span class="logo">A–Z Städbolaget</span>
+      <a href="#" class="logo-link">
+        <img src="assets/logo.png" alt="A–Z Städbolaget" class="logo-img">
+      </a>
       <nav>
         <a href="#tjanster">Tjänster</a>
         <a href="#boka">Boka</a>
@@ -25,12 +27,12 @@
   <main>
     <section class="hero">
       <div>
-        <h1>A–Z Städbolaget</h1>
+        <h1><img src="assets/logo.png" alt="A–Z Städbolaget" class="hero-logo"></h1>
         <p class="tagline">Städning för hem och kontor</p>
         <p class="intro">Vi erbjuder pålitlig städning med fokus på hem och kontor. Som bolag ger vi personlig service och tar hand om allt från vanlig hemstädning till RUT-avdrag.</p>
         <div class="cta-row">
-          <a href="tel:+46761884144" class="btn btn-primary">Ring och boka</a>
-          <a href="mailto:info@azstadbolag.se" class="btn btn-secondary">Skicka e-post</a>
+          <a href="#boka" class="btn btn-primary">Boka eller begär offert</a>
+          <a href="tel:+46761884144" class="btn btn-secondary">Ring 076-188 41 44</a>
         </div>
       </div>
     </section>
@@ -59,37 +61,120 @@
           <h3>Flyttstädning</h3>
           <p>Professionell städning vid utflytt enligt Mäklarsamfundets riktlinjer. Vi tar kök, badrum, golv, fönster (insida), garderober och alla ytor så att lägenheten eller huset är redo för överlämning. RUT-avdrag gäller. Kontakta oss i god tid före flyttdatum.</p>
         </div>
+        <div class="service-card">
+          <img class="card-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80" alt="Storstädning – grundlig genomgång" width="600" height="240">
+          <h3>Storstädning</h3>
+          <p>Grundlig städning vid inflytt, efter renovering eller när det behövs en ordentlig genomgång. Vi tar allt från topp till tå – inklusive fönster, garderober och svåra hörn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-badges">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">✓</span>
+          <span>RUT-avdrag</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">✓</span>
+          <span>Hultsfred & Kalmar län</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">✓</span>
+          <span>Erfaren personal</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon" aria-hidden="true">✓</span>
+          <span>Inga dolda avgifter</span>
+        </div>
       </div>
     </section>
 
     <section id="boka" class="booking-section">
       <div class="booking-inner">
-        <h2>Så bokar du</h2>
-        <p class="subtitle">Enkelt och personligt – vi bokar via telefon eller e-post</p>
-        <div class="booking-img-wrap">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2a045fdf7?w=900&q=80" alt="Pristagande hem – vi hjälper dig att hålla det rent">
-        </div>
-        <div class="booking-steps">
-          <div class="booking-step">
-            <div class="step-num">1</div>
-            <h3>Kontakta oss</h3>
-            <p>Ring eller skicka e-post. Berätta vad du behöver: hemstädning, kontor eller annat.</p>
+        <h2>Boka eller begär offert</h2>
+        <p class="subtitle">Fyll i formuläret så återkommer vi till dig inom kort</p>
+        <form id="booking-form" class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Namn</label>
+              <input type="text" id="name" name="name" required placeholder="Ditt namn">
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefonnummer</label>
+              <input type="tel" id="phone" name="phone" required placeholder="07X-XXX XX XX">
+            </div>
           </div>
-          <div class="booking-step">
-            <div class="step-num">2</div>
-            <h3>Vi diskuterar behov & pris</h3>
-            <p>Vi går igenom omfattning, frekvens och RUT. Du får en tydlig offert utan förpliktelser.</p>
+          <div class="form-group">
+            <label for="email">E-postadress</label>
+            <input type="email" id="email" name="email" required placeholder="din@epost.se">
           </div>
-          <div class="booking-step">
-            <div class="step-num">3</div>
-            <h3>Vi bokar tid</h3>
-            <p>När du vill gå vidare sätter vi en tid som passar dig. Inga dolda avgifter.</p>
+          <div class="form-group">
+            <label for="address">Adress (Hultsfred / Kalmar län)</label>
+            <input type="text" id="address" name="address" required placeholder="Gatuadress, ort">
           </div>
-        </div>
-        <p class="booking-cta-label">Välj hur du vill boka:</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Välj tjänst</label>
+              <select id="service" name="service" required>
+                <option value="">Välj tjänst</option>
+                <option value="Hemstädning">Hemstädning</option>
+                <option value="Storstädning">Storstädning</option>
+                <option value="Flyttstädning">Flyttstädning</option>
+                <option value="Kontorsstädning">Kontorsstädning</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="size">Bostadens storlek (kvm)</label>
+              <input type="number" id="size" name="size" min="1" placeholder="t.ex. 85">
+            </div>
+            <div class="form-group">
+              <label for="rooms">Antal rum</label>
+              <input type="number" id="rooms" name="rooms" min="1" placeholder="t.ex. 3">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="datetime">Datum & tid</label>
+            <input type="text" id="datetime" name="datetime" placeholder="Önskat datum och tid">
+          </div>
+          <div class="form-group form-checkbox">
+            <input type="checkbox" id="rut" name="rut" value="ja">
+            <label for="rut">Jag vill använda RUT-avdrag</label>
+          </div>
+          <div class="form-group">
+            <label for="message">Meddelande</label>
+            <textarea id="message" name="message" rows="4" placeholder="Beskriv ditt behov eller ställ frågor..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Skicka bokning</button>
+            <button type="submit" name="offer" value="1" class="btn btn-secondary">Begär offert</button>
+          </div>
+        </form>
+        <p class="form-alt">Eller kontakta oss direkt:</p>
         <div class="booking-cta">
           <a href="tel:+46761884144" class="btn btn-primary">Ring 076-188 41 44</a>
           <a href="mailto:info@azstadbolag.se?subject=Offert%20städning" class="btn btn-secondary">E-post: info@azstadbolag.se</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-us">
+      <h2>Varför välja oss</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon" aria-hidden="true">🏠</span>
+          <h3>Personlig service</h3>
+          <p>Vi anpassar städningen efter dina behov. Samma städare vid regelbundna uppdrag ger trygghet och konsekvens.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon" aria-hidden="true">🌿</span>
+          <h3>Miljövänligt</h3>
+          <p>Vi använder miljövänliga hygienartikler och metoder som är skonsamma för både miljö och hälsa.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon" aria-hidden="true">📋</span>
+          <h3>RUT sköts av oss</h3>
+          <p>Vi hanterar all kontakt med Skatteverket – du behöver bara beställa, betala och njuta av 50 % avdrag.</p>
         </div>
       </div>
     </section>
@@ -126,6 +211,7 @@
   </main>
 
   <footer>
+    <img src="assets/logo.png" alt="A–Z Städbolaget" class="footer-logo">
     <p>© A–Z Städbolaget</p>
   </footer>
 
